@@ -52,8 +52,9 @@ int DestoryStuInfo(all_stu_info* data_base){
 	}
 	if( Destory_olist(& data_base->stu_info_list, clearStuInfo) ==  FAIL )
 		return FAIL ;
-	
-
 	return SUCEE;
-
 }
+
+
+
+

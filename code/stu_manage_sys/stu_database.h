@@ -29,3 +29,8 @@ int DeleteStuInfo(all_stu_info* asi, stu_info* stuu_info, compare comp);
 int DestoryStuInfo(all_stu_info* data_base);
 
 #endif /* __STU_DATABASE_H */
+
+
+
+
+
