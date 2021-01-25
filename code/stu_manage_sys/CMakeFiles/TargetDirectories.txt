@@ -1,0 +1,3 @@
+/home/lliir/Desktop/code/stu_manage_sys/CMakeFiles/rebuild_cache.dir
+/home/lliir/Desktop/code/stu_manage_sys/CMakeFiles/edit_cache.dir
+/home/lliir/Desktop/code/stu_manage_sys/CMakeFiles/ts_stu.dir

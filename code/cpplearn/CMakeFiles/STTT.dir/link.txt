@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/STTT.dir/lab_2.cpp.o -o STTT 

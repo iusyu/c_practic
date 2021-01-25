@@ -1,0 +1,1 @@
+/usr/bin/cc -g -rdynamic CMakeFiles/ts_stu.dir/stu_info.c.o CMakeFiles/ts_stu.dir/test_oblist.c.o CMakeFiles/ts_stu.dir/file_IO.c.o CMakeFiles/ts_stu.dir/obLinkedList.c.o -o ts_stu 

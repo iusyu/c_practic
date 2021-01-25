@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lliir/Desktop/code/stu_manage_sys/file_IO.h
+stdio.h
+-
+stdlib.h
+-
+obLinkedList.h
+/home/lliir/Desktop/code/stu_manage_sys/obLinkedList.h
+stu_info.h
+/home/lliir/Desktop/code/stu_manage_sys/stu_info.h
+
+/home/lliir/Desktop/code/stu_manage_sys/obLinkedList.h
+stdlib.h
+-
+
+/home/lliir/Desktop/code/stu_manage_sys/stu_info.h
+stdlib.h
+-
+obLinkedList.h
+/home/lliir/Desktop/code/stu_manage_sys/obLinkedList.h
+
+/home/lliir/Desktop/code/stu_manage_sys/test_oblist.c
+stdio.h
+-
+stdlib.h
+-
+obLinkedList.h
+/home/lliir/Desktop/code/stu_manage_sys/obLinkedList.h
+stu_info.h
+/home/lliir/Desktop/code/stu_manage_sys/stu_info.h
+file_IO.h
+/home/lliir/Desktop/code/stu_manage_sys/file_IO.h
+

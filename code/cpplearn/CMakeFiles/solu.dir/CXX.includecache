@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lliir/Desktop/code/cpplearn/Solution.cpp
+iostream
+-
+list
+-
+sstream
+-
+string
+-
+vector
+-
+algorithm
+-
+cstdlib
+-
+ctime
+-
+Solution.hpp
+/home/lliir/Desktop/code/cpplearn/Solution.hpp
+
+/home/lliir/Desktop/code/cpplearn/Solution.hpp
+

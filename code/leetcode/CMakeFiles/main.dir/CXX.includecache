@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lliir/Desktop/code/leetcode/main.cpp
+iostream
+-
+vector
+-
+solution.cpp
+/home/lliir/Desktop/code/leetcode/solution.cpp
+
+/home/lliir/Desktop/code/leetcode/solution.cpp
+iostream
+-
+vector
+-
+

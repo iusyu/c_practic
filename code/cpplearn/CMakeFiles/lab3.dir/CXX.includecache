@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lliir/Desktop/code/cpplearn/lab_3.cpp
+new
+-
+vector
+-
+iostream
+-
+list
+-
+vector
+-
+

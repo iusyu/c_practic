@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/solu.dir/main.cpp.o CMakeFiles/solu.dir/solution.cpp.o -o solu 

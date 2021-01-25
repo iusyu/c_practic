@@ -1,0 +1,3 @@
+/home/lliir/Desktop/code/leetcode/CMakeFiles/rebuild_cache.dir
+/home/lliir/Desktop/code/leetcode/CMakeFiles/edit_cache.dir
+/home/lliir/Desktop/code/leetcode/CMakeFiles/solu.dir

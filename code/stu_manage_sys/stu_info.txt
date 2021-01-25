@@ -1,0 +1,11 @@
+StudentsNumber:10
+id name 1 add phone mail 21,1998,12,12
+id name 1 add phone mail 21,1998,12,12
+id name 1 add phone mail 21,1998,12,12
+id name 1 add phone mail 21,1998,12,12
+id name 1 add phone mail 21,1998,12,12
+id name 1 add phone mail 21,1998,12,12
+id name 1 add phone mail 21,1998,12,12
+id name 1 add phone mail 21,1998,12,12
+id name 1 add phone mail 21,1998,12,12
+id name 1 add phone mail 21,1998,12,12

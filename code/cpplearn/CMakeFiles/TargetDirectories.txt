@@ -1,0 +1,8 @@
+/home/lliir/Desktop/code/cpplearn/CMakeFiles/rebuild_cache.dir
+/home/lliir/Desktop/code/cpplearn/CMakeFiles/lab7.dir
+/home/lliir/Desktop/code/cpplearn/CMakeFiles/lab5.dir
+/home/lliir/Desktop/code/cpplearn/CMakeFiles/lab4.dir
+/home/lliir/Desktop/code/cpplearn/CMakeFiles/edit_cache.dir
+/home/lliir/Desktop/code/cpplearn/CMakeFiles/solu.dir
+/home/lliir/Desktop/code/cpplearn/CMakeFiles/lab3.dir
+/home/lliir/Desktop/code/cpplearn/CMakeFiles/STTT.dir

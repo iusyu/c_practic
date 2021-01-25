@@ -1,0 +1,3 @@
+/home/lliir/Desktop/code/cpplearn/c_1/CMakeFiles/rebuild_cache.dir
+/home/lliir/Desktop/code/cpplearn/c_1/CMakeFiles/edit_cache.dir
+/home/lliir/Desktop/code/cpplearn/c_1/CMakeFiles/cone.dir

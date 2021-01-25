@@ -1,0 +1,7 @@
+Focal : 9mm 
+f.1. eyspice:   maglige sent
+        12.0              1
+        54.0              0
+        76.0              0
+        89.0              0
+        43.0              0

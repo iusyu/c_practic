@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/q35.dir/q35.cpp.o -o q35 
