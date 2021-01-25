@@ -7,7 +7,11 @@
 
 int main(int argc, char *argv[])
 {
-	printf("this is new loading into the memory to executive!");
+	sleep(5);
+	printf("this is new loading into the memory to executive!\n");
+	printf("parents process ID : %d \n", getpid());
+
+	printf("parents process ID : %d \n", getppid());
 	return 0;
 }
 
