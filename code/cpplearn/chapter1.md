@@ -4,6 +4,8 @@
 
 ##### 1.1.1 class部分的知识点
 
+------------------------
+
 _CPP_ 确实很难学，就__C__ 基础部分简单一点，但是__CPP__ 分两块重点类和模板。
 
 类重点就是类的单个组成，包括__Detor__ 和__Ctor__ 这两个部分，**constructor** 部分又分了集中不同的*COPY* 初始化Cotr之类的。这就是单个*class* 的组成部分。当单个*class*说完了就可以把他们联系起来，比如多个组合继承之类的的关系。多个***class***之间的相互继承，初始化的表现和销毁的表现应该如何设计。这些东西是***inheritance***考虑的问题。还有支持***OOP***的设计，比如**继承，多态，虚函数** [^Inheritance Mophorise Virtrue]这些都是如何表现的。
@@ -14,7 +16,7 @@ _CPP_ 确实很难学，就__C__ 基础部分简单一点，但是__CPP__ 分两
 
  
 
-1. Code Viewer
+1. ***Code Viewer*** 深入___class___的各个细节 然后说明其作用
 
     ```c++
 class Base{
@@ -24,12 +26,45 @@ class Base{
     Base(Base&& ba);
     Base& operator=(Base& a, Base& b);
     
+        
+    protect:
+const int get_value();
     
-    ~Base() = default;
-};
+    private:
+    const int pp;
+    static int pp;
+    double* pd;
+    
+    
+    ~Base() = default; 
+    };
     ```
+    
+2. ***KEY WORD*** 解释语义
 
+    ***class***
 
+    ***public***
+
+    ***private***
+
+    ***virtrue***
+
+    ***override***
+
+    ***const***
+
+    ***static***
+
+    ***friend***
+
+    ***nonexcept***
+
+    ***=default***
+
+    ***=0***
+
+    
 
 
 
@@ -53,4 +88,6 @@ typedef struct _dlist{
 
 
 ##### 1.1.2 模板相关的知识
+
+--------
 
