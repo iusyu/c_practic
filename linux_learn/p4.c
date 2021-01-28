@@ -52,9 +52,6 @@ int com_ls(const char* argv){
 
 }
 
-int format_print_file_list(struct dirent* file, char* opt[]){
-	return 0;
-}
 
 void _ls_null(struct dirent* pwd){
 	printf("%s ", pwd->d_name);
@@ -64,6 +61,9 @@ void _ls_l(struct dirent * pwd){
 	//printf("%s %s %s",pwd->d_name,
 }
 
+int format_print_file_list(struct dirent* file, char* opt[]){
+	return 0;
+}
 
 int main(int argc, char *argv[])
 {
