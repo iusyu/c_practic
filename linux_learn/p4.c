@@ -20,52 +20,21 @@
 
 
 int com_ls(const char* argv);
-
+void _ls_null(struct dirent* pwd);
 
 
 
 enum {ls, cd};
 
-int main(int argc, char *argv[])
-{
-	char buffer[PWDBUFSIZE];
-
-	if(!getcwd( buffer, PWDBUFSIZE))
-		exit(EXIT_FAILURE);
-
-
-	
-	printf("%s]> ", buffer);
-	char tmp = 0;
-	char commond[PWDBUFSIZE];
-
-	size_t inc = 0;
-	while( (tmp = getchar) != EOF){
-		int comm = figure_which_terminal(commond);
-		switch (comm) {
-			case ls:
-				
-				break;
-			default:
-				
-		}
-	}
-	printf("this is new loading into the memory to executive!\n");
-	printf("parents process ID : %d \n", getpid());
-
-	printf("parents process ID : %d \n", getppid());
-	return 0;
-}
-
-
 int com_ls(const char* argv){
+	/*
 	char currentDir[PWDBUFSIZE];
 	if( !getcwd(currentDir, PWDBUFSIZE)){
 		perror("Get Current Dir Fial \n");
 		exit(EXIT_FAILURE);
 	}
-
-	printf("current dir > %s \n",currentDir);
+*/
+	printf("current dir > %s \n", argv);
 	//PRINT_CURRENT_DIR(currentDir);
 	
 	DIR* pwd;
@@ -76,12 +45,46 @@ int com_ls(const char* argv){
 	}
 
 	while( (ptr=readdir(pwd)) != NULL){
-		
+		_ls_null(ptr);	
 	}
+
+	closedir(pwd);
+
 }
 
 int format_print_file_list(struct dirent* file, char* opt[]){
+	return 0;
+}
 
+void _ls_null(struct dirent* pwd){
+	printf("%s ", pwd->d_name);
+}
+
+void _ls_l(struct dirent * pwd){
+	//printf("%s %s %s",pwd->d_name,
+}
+
+
+int main(int argc, char *argv[])
+{
+	char buffer[PWDBUFSIZE];
+
+	if(!getcwd( buffer, PWDBUFSIZE))
+		exit(EXIT_FAILURE);
+
+
+		
+	printf("%s]> ", buffer);
+	char tmp = 0;
+	char commond[PWDBUFSIZE];
+
+	size_t inc = 0;
+
+	printf("this is new loading into the memory to executive!\n");
+	printf("parents process ID : %d \n", getpid());
+
+	printf("parents process ID : %d \n", getppid());
+	return 0;
 }
 
 
