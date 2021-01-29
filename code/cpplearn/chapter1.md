@@ -103,5 +103,5 @@ typedef struct _dlist{
 
 STL库是采用模板作为技术支持，具有组件，算法，容器，迭代器，仿函数
 
-STL的核心库是算法和容器，中间的桥梁是iterator。
+STL的核心库是算法和容器，中间的桥梁是iterator。 
 
