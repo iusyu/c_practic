@@ -21,13 +21,19 @@
 
 
 #define MAXBUFFSIZE 128
+#define ST_A 001
+#define ST_L 002
+#define ST_AL 003
+
+
 
 #define PRINT printf("-")
 #define PRINTX printf("x")
 #define PRINTR printf("r")
 #define PRINTW printf("w")
 #define ENDL printf("\n")
-#define PRINTSING(c) printf("c")
+
+
 
 void display_detail(struct stat * st, char* file_name){
 	
@@ -116,19 +122,63 @@ void display_detail(struct stat * st, char* file_name){
 	psd = getpwuid(st->st_uid);
 	grp = getgrgid(st->st_gid);
 
-	printf("%4u ", st->st_nlink);
+	printf("%4lu ", st->st_nlink);
 	printf("%-8s", psd->pw_name);
 	printf("%-8s", grp->gr_name);
-	printf("%6uB", st->st_size);
+	printf("%6luB", st->st_size);
 	strcpy(buf_tm, ctime(& st->st_mtime));
 	buf_tm[strlen(buf_tm) -1] = '\0';
 	printf("  %s", buf_tm);
 	printf(" %s", file_name); 
+	ENDL;
 }
 
-void display_sample(
+void display_sample(struct dirent* dire){
+	printf("%5s",dire->d_name);
+	
+}
+
+int is_cmd(char* cmd){
+	int stat = 0;
+	int cmd_stat_a = 0;
+	int cmd_stat_l = 0;
+	
+	if(cmd[0] == '-'){
+		stat = 1;
+	} else {
+		return stat;
+	}
+
+	for( size_t i=1; cmd[i] != EOF; i++){
+		if (cmd[i] == 'a'){
+			cmd_stat_a = 1;
+		} else if (cmd[i] == 'l') {
+			cmd_stat_l = 1;
+		}
+	}
+	
+	if(1 == stat ){
+		if( cmd_stat_a == 1 && cmd_stat_l == 1)
+			return ST_AL;
+		else if ( 1 == cmd_stat_a && 0 == cmd_stat_l)
+			return ST_A;
+		else if ( 1 == cmd_stat_l && 0 == cmd_stat_a)
+			return ST_L;
+	} else {
+		return stat;
+	}
+
+	return stat;
+}
 
 
+int parse_cmd(int argc, char* agrv[]){
+	int cmd_stat = 0;
+	if( (cmd_stat = is_cmd(agrv[1])) >= 1 ){
+		
+	}
+
+}
 
 
 int main(int argc, char *argv[])
@@ -150,12 +200,12 @@ int main(int argc, char *argv[])
 	closedir(dird);
 	
 
-	char * path = "./p4.c";
+	char * path = "./test";
 	char buuff[64];
 	struct stat filed;
 	int st = lstat(path, &filed);
 	
-	display_detail(&filed,"./p2.c");
+	display_detail(&filed,"./p3.c");
 	ENDL;
 
 
