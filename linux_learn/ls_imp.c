@@ -141,6 +141,10 @@ void display_sample(struct stat *info, char* name){
 	
 }
 
+void display_samplee(struct dirent *info, char *name){
+
+}
+
 int is_cmd(char* cmd){
 	int stat = 0;
 	int cmd_stat_a = 0;
@@ -204,7 +208,18 @@ void whrap_display_opt(int mode, struct stat *info, char* name){
 	}
 } 
 
-
+char* combine_str(const char* a, const char* b){
+	char* result;
+	result = calloc(strlen(a) + strlen(b) + 1, 1);
+	if(!result){
+		throw_erro("alloc a string mem fail");
+	}
+	
+	memcpy(result, a, strlen(a));
+	memcpy(& result[strlen(a)] , b, strlen(b)+1);
+	
+	return result;
+}
 
 void display(int cmd_stat, char *path){
 	if( !path){
@@ -233,8 +248,14 @@ int main(int argc, char *argv[])
 	int cmd_stat = 0;
 	char* path = NULL;
 	int path_pos = 0;
+	
+	//DIR *ddir;
+	//struct stat buff;
+	//struct dirent *ddient;
+
+
 	if(1==argc){
-		path = ".";
+		path = "./";
 		
 	}else if(argc > 1) {
 		cmd_stat = is_cmd(argv[1]);
@@ -248,8 +269,41 @@ int main(int argc, char *argv[])
 	if( cmd_stat > 0 && argc >2)
 		path_pos = 2;
 	
-	while (  
+	if( 0 == path_pos && 0 == cmd_stat){
+		DIR *ddir;
+		struct stat buff;
+		struct dirent *ddient;
+
+		if( (ddir = opendir("./")) != NULL) {
+			throw_erro("open fail");
+		}
+
+		while ( (ddient = readdir(ddir)) != NULL ){
+			display_samplee(ddient,"./");
+		}
+
+		closedir(ddir);
+	}
+
 	
+	if( cmd_stat == ST_L) {
+		 DIR *tmp_dir;
+		 struct stat tmp_buff;
+		 struct dirent *tmp_direnn;
+		 char *tmp_char;
+
+		if( (ddir = opendir(path)) != NULL )
+			throw_erro("no such dir ");
+		while ( (tmp_direnn = readdir(tmp_dir)) != NULL ){
+			 tmp_char = combine_str(dir, tmp_direnn->d_name);
+			 lstat(tmp_char, &tmp_buff);
+			 whrap_display_opt(ST_L, &tmp_buff,NULL);
+
+		}
+	}
+
+
+
 
 	
 	
