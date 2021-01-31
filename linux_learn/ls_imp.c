@@ -33,7 +33,10 @@
 #define PRINTW printf("w")
 #define ENDL printf("\n")
 
-
+void throw_erro(char* ee){
+	perror(ee);
+	exit(EXIT_FAILURE);
+}
 
 void display_detail(struct stat * st, char* file_name){
 	
@@ -133,8 +136,8 @@ void display_detail(struct stat * st, char* file_name){
 	ENDL;
 }
 
-void display_sample(struct dirent* dire){
-	printf("%5s",dire->d_name);
+void display_sample(struct stat *info, char* name){
+	//printf("%5s",dire->d_name);
 	
 }
 
@@ -175,16 +178,96 @@ int is_cmd(char* cmd){
 int parse_cmd(int argc, char* agrv[]){
 	int cmd_stat = 0;
 	if( (cmd_stat = is_cmd(agrv[1])) >= 1 ){
-		
+		return cmd_stat;
+	} else {
+		return cmd_stat;
 	}
+}
+
+
+
+void whrap_display_opt(int mode, struct stat *info, char* name){
+	switch(mode){
+		case ST_A:
+			display_sample(info,name);
+			break;
+		case ST_L:
+			display_detail(info,name);
+			break;
+		case ST_AL:
+			display_detail(info, name);
+			break;
+		default:
+			display_sample(info,name);
+			break;
+			
+	}
+} 
+
+
+
+void display(int cmd_stat, char *path){
+	if( !path){
+		throw_erro("path is empty, can't open.");	
+	}
+
+	DIR* ddir;
+	struct dirent *ddirent;
+	struct stat dirr;
+	if ( (ddir= opendir(path)) == NULL)
+		throw_erro("open dir failed! or have not such DIR ");
+	while( (ddirent = readdir(ddir)) != NULL){
+		lstat(path,&dirr);
+	}
+
 
 }
 
 
+
+
 int main(int argc, char *argv[])
 {
+
+
+	int cmd_stat = 0;
+	char* path = NULL;
+	int path_pos = 0;
+	if(1==argc){
+		path = ".";
+		
+	}else if(argc > 1) {
+		cmd_stat = is_cmd(argv[1]);
+	}
+
+
+	
+	if( 0 == cmd_stat && argc > 1 )
+		path_pos = 1;
+
+	if( cmd_stat > 0 && argc >2)
+		path_pos = 2;
+	
+	while (  
+	
+
 	
 	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*	
 	struct dirent* dirp;
 	DIR* dird;
 	if( (dird = opendir(argv[1]))== NULL){
@@ -208,7 +291,7 @@ int main(int argc, char *argv[])
 	display_detail(&filed,"./p3.c");
 	ENDL;
 
-
+*/
 	return 0;
 }
 
