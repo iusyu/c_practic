@@ -20,7 +20,7 @@
 #include<grp.h>
 
 
-#define MAXBUFFSIZE 128
+#define MAXBUFFSIZE 256
 #define ST_A 001
 #define ST_L 002
 #define ST_AL 003
@@ -136,7 +136,7 @@ void display_detail(struct stat * st, char* file_name){
 	ENDL;
 }
 
-void display_sample(struct stat *info, char* name){
+void display_sample(struct stat *info){
 	//printf("%5s",dire->d_name);
 	
 }
@@ -193,7 +193,7 @@ int parse_cmd(int argc, char* agrv[]){
 void whrap_display_opt(int mode, struct stat *info, char* name){
 	switch(mode){
 		case ST_A:
-			display_sample(info,name);
+			display_sample(info);
 			break;
 		case ST_L:
 			display_detail(info,name);
@@ -202,7 +202,7 @@ void whrap_display_opt(int mode, struct stat *info, char* name){
 			display_detail(info, name);
 			break;
 		default:
-			display_sample(info,name);
+			display_sample(info);
 			break;
 			
 	}
@@ -226,17 +226,27 @@ void display(int cmd_stat, char *path){
 		throw_erro("path is empty, can't open.");	
 	}
 
-	DIR* ddir;
-	struct dirent *ddirent;
 	struct stat dirr;
-	if ( (ddir= opendir(path)) == NULL)
-		throw_erro("open dir failed! or have not such DIR ");
-	while( (ddirent = readdir(ddir)) != NULL){
-		lstat(path,&dirr);
+	int ero;
+	if( (ero = lstat(path,&dirr) ) == -1 ){
+		throw_erro("lstat fail, have not file??");
 	}
 
+	whrap_display_opt(cmd_stat,&dirr,NULL);
+	
 
 }
+
+
+char* get_cpystr(const char *const src){
+	size_t chara = strlen(src)+1;
+
+	char *tmp = calloc(chara, 1);
+	strcpy(tmp,src);
+	return tmp;
+}
+
+
 
 
 
@@ -248,6 +258,8 @@ int main(int argc, char *argv[])
 	int cmd_stat = 0;
 	char* path = NULL;
 	int path_pos = 0;
+
+	char *pathname[MAXBUFFSIZE] ={NULL};
 	
 	//DIR *ddir;
 	//struct stat buff;
@@ -261,91 +273,85 @@ int main(int argc, char *argv[])
 		cmd_stat = is_cmd(argv[1]);
 	}
 
-
 	
+	
+
 	if( 0 == cmd_stat && argc > 1 )
 		path_pos = 1;
 
 	if( cmd_stat > 0 && argc >2)
 		path_pos = 2;
 	
-	if( 0 == path_pos && 0 == cmd_stat){
+	/* 生成读取路径 */
+	if( 0==path_pos){
+		pathname[0] = "./";
+	}else if( path_pos > 0 && cmd_stat ==0){
+		int i = 0;
+		while( argv[path_pos] != NULL) {
+			pathname[i] = argv[path_pos++];
+		}
+	} else if (path_pos >0 && cmd_stat > 0) {
+		int i = 0;
+		while( argv[path_pos] != NULL) {
+			pathname[i] = argv[path_pos++];
+		}
+	}
+
+
+
+	/* 读取目录pathname下的目录中的文件数量 */
+	size_t counting = 0;
+	size_t max_char = 0;
+	size_t each_path = 0;
+	for ( size_t i = 0; pathname[i] != NULL; i++) {
 		DIR *ddir;
 		struct stat buff;
 		struct dirent *ddient;
 
-		if( (ddir = opendir("./")) != NULL) {
-			throw_erro("open fail");
+		if( (ddir = opendir(pathname[i])) != NULL) {
+			throw_erro("open filepath fail");
 		}
 
 		while ( (ddient = readdir(ddir)) != NULL ){
-			display_samplee(ddient,"./");
+			
+			
+			counting++;
+			if( strlen(ddient->d_name)+1 > max_char ){
+				max_char = strlen(ddient->d_name)+1;
+			}
 		}
 
 		closedir(ddir);
 	}
 
+	/* 分配多个目录下文件所需的空间 */
+	char **filename = calloc( counting+1, sizeof(char*));
 	
-	if( cmd_stat == ST_L) {
-		 DIR *tmp_dir;
-		 struct stat tmp_buff;
-		 struct dirent *tmp_direnn;
-		 char *tmp_char;
+	
+	/* 整理所要显示文件名字即路径 */
+	size_t inc = 0;
+	for ( size_t i = 0; pathname[i] != NULL; i++) {
+		DIR *ddir;
+		struct stat buff;
+		struct dirent *ddient;
 
-		if( (ddir = opendir(path)) != NULL )
-			throw_erro("no such dir ");
-		while ( (tmp_direnn = readdir(tmp_dir)) != NULL ){
-			 tmp_char = combine_str(dir, tmp_direnn->d_name);
-			 lstat(tmp_char, &tmp_buff);
-			 whrap_display_opt(ST_L, &tmp_buff,NULL);
-
+		if( (ddir = opendir(pathname[i])) != NULL) {
+			throw_erro("open filepath fail");
 		}
+
+		while ( (ddient = readdir(ddir)) != NULL ){
+			filename[inc] = get_cpystr(pathname[i]);
+			strcat(filename[inc], ddient->d_name);
+			inc++;
+		}
+
+		closedir(ddir);
 	}
 
-
-
-
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*	
-	struct dirent* dirp;
-	DIR* dird;
-	if( (dird = opendir(argv[1]))== NULL){
-		perror("opendir is fiall !");
-		exit(EXIT_FAILURE);
+	for( size_t i = 0; filename[i] != NULL;i++) {
+		display(cmd_stat, filename[i++]);
 	}
 
-	while( (dirp = readdir(dird)) != NULL){
-		
-		printf("files : > %s \n", dirp->d_name);
-	}
-
-	closedir(dird);
-	
-
-	char * path = "./test";
-	char buuff[64];
-	struct stat filed;
-	int st = lstat(path, &filed);
-	
-	display_detail(&filed,"./p3.c");
-	ENDL;
-
-*/
 	return 0;
 }
 
