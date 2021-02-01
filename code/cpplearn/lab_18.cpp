@@ -14,10 +14,10 @@ void const_some(){
 	double dval = 3.141576;
 	const int &ri = dval;
 	
-	int &r = 4;
+	//int &r = 4; 
 	const int &ric = 4;
 
-	ri = 4;
+	// ri = 4;
 	std::cout<< ri << std::endl;
 
 }
@@ -25,9 +25,16 @@ void const_some(){
 void _constexpr(){
 	constexpr char* pst = nullptr;
 	char* dkkd = "cddaf";
-	pst = dkkd;
+	//pst = dkkd;
 	const int ii = 9;
 	const auto &iii = ii;
+
+	int aa = 10;
+	int &aar = aa;
+	int *aap = & aar;
+	decltype((aa)) dd = aa;
+	dd = 20;
+	std::cout<< aa <<std::endl;
 
 }
 
@@ -38,6 +45,7 @@ int main(int argc, char *argv[])
 	std::shared_ptr<Sneaky> ptr_sneak = std::make_shared<Sneaky>();
 	ptr_sneak->max_weight();
 	const_some();
+	_constexpr();
 	return 0;
 }
 
