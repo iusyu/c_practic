@@ -44,12 +44,11 @@ int main(int argc, char *argv[])
 
 	*/
 	std::stable_sort(vi.begin(), vi.end(), [](auto &a, auto &b){
-			return a>b;
-			});
+			return a>b; });
 
 	auto f1 = [](auto & a){
 		if( a > 60 ){
-			std::cout<<1<<std::setw(2);
+			std::cout<<1<<std::setw(5)<<a<<std::setw(2);
 		} else {
 			std::cout<<0<<std::setw(2);
 		}
