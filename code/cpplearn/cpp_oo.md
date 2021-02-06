@@ -194,6 +194,16 @@ ___Inheritance___ [^ 继承 表示is-a]
 >    
 >    
 >    
+>    
 >    ````
 >
-> 3. 
+> 3. asadsfasd
+
+___Inheritance with virtual function___ 
+
+> 成员函数的继承，不应该从内存角度考虑。derived class 能否调用 base class Member function
+
+##### 设计模式
+
+adapter
+
