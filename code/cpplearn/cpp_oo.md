@@ -75,6 +75,125 @@ ___BIG THREE___ 函数
 _拷贝构造函数  拷贝赋值操作  析构函数_ 
 
 1. __class with pointer members__ 必须有 copy ctor 和 copy op=
-2.  ___operator=___ 左右赋值就很迷惑。-> _成员操作符重载带有this pointer
-3. 
 
+2.  ___operator=___ 左右赋值就很迷惑。-> _成员操作符重载带有this pointer
+
+3. > 生命周期
+   >
+   > > 先分配Memory 再调用ctor， —— 使用结束—— 先调用 dtor, 再delete
+
+4. new 16的倍数
+
+5. new 的底层分配内存细节
+
+
+
+##### static 类模板 函数模板及其他等
+
+___static___ 特性
+
+> static member 放在内存某处，但是不和其他object玩儿
+>
+> static function和 member function的区别在于 __是否隐含this Pointer__
+>
+> > 调用:
+> >
+> > a. object调用  b. class name调用
+>
+> static特性设计singleton设计模式实践，利用
+
+补充 Singleton
+
+```c++
+class Ratio {
+public:
+    Ratio& getInstance();
+private:
+    Ratio() = default;
+    Ratio(double rr = 0):_ratio(rr) {}
+    double _ratio;
+}
+
+class singleton {
+    public:
+   	static singleton& getInstance( double);
+    const double use() const;
+   	private:
+    const double _const_pp;
+    double _pp;
+    singleton(double cpp, double pp = 0): _const_pp(cpp),_pp(pp) {}
+};
+
+singleton& getInstance(double de){
+    static res(de);
+    return res;
+}
+
+
+
+```
+
+
+
+___template___模板
+
+___namespace___ 封装
+
+
+
+--------
+
+##### Object Orient Programming 
+
+___Composition___ [^ 复合，表示has-a] 
+
+> 1. 实心菱形表示
+> 2. 从内存的角度看，就是 “回”，包含
+>
+> 2. _composition_ 下各对象析构和构造函数的表征
+>
+> > Key: 构造由内而外， 析构有外而内
+> >
+> > ```c++
+> > Container::Container(...):Component() {}; // ctor 可以自己制定构造方法 但不能顺序
+> > 
+> > Container::~Container(...) {...～Component() }; // dtor
+> > ```
+
+___Delegation___ [^ 委托]. Composition By Reference.
+
+> 1.  ```c++
+>    //pointer to implement PIMPL(pimpl) Alias: Handle/Body 编译防火墙
+>    //Copy on Write
+>    
+>    //String.h
+>    
+>    class string {
+>        public:
+>        somefunction();
+>        
+>        private:
+>        sting_imp * ppp;
+>    };
+>    
+>    
+>    //stringIMP.cpp
+>    
+>    
+>    
+>     ```
+>
+> 2. sdfjakdslfj
+
+___Inheritance___ [^ 继承 表示is-a] 
+
+> 1. inheritance下如composition 一致
+>
+> 2. ````c++
+>    
+>    
+>    
+>    
+>    ````
+>
+> 3. 
