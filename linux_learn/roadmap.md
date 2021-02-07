@@ -134,6 +134,10 @@ Linux文件操作编程
 
 [mmap文件映射](https://www.cnblogs.com/huxiao-tee/p/4660352.html)高效操作文件 [mmap wiki](https://en.wikipedia.org/wiki/Mmap) [文件映射详解](https://www.cnblogs.com/huxiao-tee/p/4660352.html)
 
+> [从内核文件看内核文件读写过程](https://www.cnblogs.com/huxiao-tee/p/4657851.html)
+
+
+
 使用管道文件通信
 
 select多路复用
