@@ -130,9 +130,9 @@ Git版本控制系统
 
 Linux文件操作编程
 
-文件空洞设计
+[文件空洞设计](https://lrita.github.io/images/posts/filesystem/Linux_File_Hole_And_Sparse_Files.pdf)
 
-mmap文件映射高效操作文件
+[mmap文件映射](https://www.cnblogs.com/huxiao-tee/p/4660352.html)高效操作文件 [mmap wiki](https://en.wikipedia.org/wiki/Mmap) [文件映射详解](https://www.cnblogs.com/huxiao-tee/p/4660352.html)
 
 使用管道文件通信
 
