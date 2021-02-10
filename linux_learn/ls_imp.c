@@ -308,7 +308,7 @@ int main(int argc, char *argv[])
 		struct stat buff;
 		struct dirent *ddient;
 
-		if( (ddir = opendir(pathname[i])) != NULL) {
+		if( (ddir = opendir(pathname[i])) == NULL) {
 			throw_erro("open filepath fail");
 		}
 
@@ -335,7 +335,7 @@ int main(int argc, char *argv[])
 		struct stat buff;
 		struct dirent *ddient;
 
-		if( (ddir = opendir(pathname[i])) != NULL) {
+		if( (ddir = opendir(pathname[i])) == NULL) {
 			throw_erro("open filepath fail");
 		}
 
