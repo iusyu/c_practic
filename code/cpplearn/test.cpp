@@ -1,12 +1,43 @@
+//this is line code to
 #include<iostream>
-#include<fstream>
-#include<sstream>
+#include<vector>
+#include<memory>
+#include<string>
+
+const int size_kkk = 512;
+
+using size = unsigned long;
 
 
-
-class book {
+class Sale_data{
 public:
-    std::string name;
-    std::string ISB;
-    std::string 
+	Sale_data() = default;
+	std::string ISB;
+	size numb;
+	double price;
+};
+
+
+
+
+
+int main(int argc, char *argv[])
+{
+	std::string text;
+	std::string tmp;
+	while( std::cin >> tmp ){
+		text+=tmp;
+	}
+
+	//std::cout<<text <<std::endl;
+
+	for( auto &c : text ){
+		if(std::isalpha(c)){
+			c = 'X';
+		}
+	}
+
+	std::cout<<text<<std::endl;
+	return 0;
 }
+
