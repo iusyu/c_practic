@@ -8,3 +8,6 @@ void* life_input(void* l);
 
 
 
+
+
+
