@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 	}
 
 	while( (dirp = readdir(dird)) != NULL){
+		lstat()
 		printf("files : > %s \n", dirp->d_name);
 	}
 

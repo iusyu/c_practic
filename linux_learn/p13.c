@@ -15,6 +15,7 @@
 #include<string.h>
 #include<time.h>
 
+#include<fcntl.h>
 
 
 
@@ -26,12 +27,9 @@ extern char** environ;
 
 int main(int argc, char *argv[])
 {
-	time_t tm = time(NULL);
-	printf("%ul\n", tm);
-	puts(ctime(&tm));
-	return 0;
+	char  buffer[1024];
+	setvbuf(stdout,NULL, _IONBF,0);
+	setvbuf(stdin, buffer, _IOFBF, 1024);
+	char instr[2048];
+	scanf("%s",instr);
 }
-
-
-
-
