@@ -14,7 +14,8 @@
  * Test std::thread
  * std::thread tt
  * tt.join()
- *
+ * Q&A:
+ *    a. 好像detach之后 主main结束之后 就释放了terminal了？？
  * 
  *
  *
