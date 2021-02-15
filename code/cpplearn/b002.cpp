@@ -4,6 +4,7 @@
 #include<string>
 #include<iomanip>
 #include<boost/asio.hpp>
+#include<memory>
 
 
 #include<unistd.h>
@@ -25,10 +26,14 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	using namespace boost::asio;
+	typedef std::shared_ptr<ip::tcp::socket> socket_ptr;
 	io_service service;
-	ip::tcp::endpoint ep( ip::address::from_string("127.0.0.1"), 2021);
-	ip::tcp::socket sock(service);
+	ip::tcp::endpoint ep( ip::tcp::v4(), 2001);
+	ip::tcp::acceptor acc(service, ep);
+	while ( true ) {
+		socket_ptr sock( new ip::tcp::socket(service));
 
+	}
 	return 0;
 }
 
