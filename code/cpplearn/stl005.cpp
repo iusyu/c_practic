@@ -38,6 +38,7 @@ int main( int argc, char* argv[])
 {
 	Fraction f(1,5);
 	double d = f + 7;
+	cout<<"the result is :"<<d<<endl;
 	return 0;
 }
 
