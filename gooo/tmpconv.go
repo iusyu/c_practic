@@ -1,37 +1,13 @@
-package main
+package tempconv
 
-import (
-	"fmt"
-	"io/ioutil"
-	"os"
-)
-{
-	"fmt"
-	"os"
-	"strings"
-	"io"
+
+type Celsius float64
+type Fahrenheit float64
+
+const {
+	AbsoluteZeroC Celsius = -273.15
+	FreezingC Celsius = 0
+	BoilingC Celsius = 100
 }
 
 
-
-
-
-
-
-func main() {
-	if len(os.Args) > 1 {
-		for fileName := range os.Args {
-			inputFile,  inputError := ioutil.ReadFile(fileName)
-			if inputError != nil {
-			fmt.Println(inputError.Error())
-			}
-			fmt.Printf("%s\n", string(inputFile))
-
-		}
-	}
-}
-
-
-func checkCharac(a *int32) int32 {
-
-}
