@@ -12,7 +12,7 @@
 #include<unistd.h>
 
 /** 
- * 现实一下 traits特性
+ * 现实 STL的算法
  *
  * 
  *
@@ -38,10 +38,16 @@ template<> struct _iterator_traits<class T*> {
 	typedef T value_typed;
 };
 
-
-
-
-
+template<typename T>
+class Giao : public unary_function<T, bool> {
+	bool operator()(T var){
+		if( var * 4 > 10){
+			return true;
+		} else {
+			return false;
+		}
+	}
+};
 
 
 
