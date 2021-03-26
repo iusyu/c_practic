@@ -1,0 +1,4 @@
+/home/ius/c_practic/code/cmake_gtest/build/CMakeFiles/rebuild_cache.dir
+/home/ius/c_practic/code/cmake_gtest/build/CMakeFiles/edit_cache.dir
+/home/ius/c_practic/code/cmake_gtest/build/CMakeFiles/test.dir
+/home/ius/c_practic/code/cmake_gtest/build/CMakeFiles/hello_test.dir
