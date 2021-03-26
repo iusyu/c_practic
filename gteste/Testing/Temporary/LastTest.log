@@ -1,0 +1,19 @@
+Start testing: Mar 26 18:43 CST
+----------------------------------------------------------
+Unable to find executable: gt001
+1/1 Testing: test
+1/1 Test: test
+Command: "" "test" "gt001"
+Directory: /home/ius/c_practic/gteste
+"test" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test" end time: Mar 26 18:43 CST
+"test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 26 18:43 CST

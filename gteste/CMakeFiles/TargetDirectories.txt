@@ -1,0 +1,4 @@
+/home/ius/c_practic/gteste/CMakeFiles/rebuild_cache.dir
+/home/ius/c_practic/gteste/CMakeFiles/edit_cache.dir
+/home/ius/c_practic/gteste/CMakeFiles/test.dir
+/home/ius/c_practic/gteste/CMakeFiles/gt001.dir

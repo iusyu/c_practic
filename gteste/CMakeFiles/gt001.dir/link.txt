@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/gt001.dir/gt001.cpp.o -o gt001  -lGTEST_MAIN_LIBRARY_DEBUG-NOTFOUND 
