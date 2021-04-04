@@ -13,8 +13,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <list>
-#include <array>
 #include <memory>
 
 
@@ -22,8 +20,9 @@
 
 using std::vector;
 using std::shared_ptr;
-using std::array;
-using std::list;
+
+
+
 class MaximumSumSubarrayOfSizeK: public AbsSolution{
 public:
 	MaximumSumSubarrayOfSizeK( size_t kk, vector<int> & vec):K(kk), ar(vec), max(vec[0]) {}
@@ -46,16 +45,22 @@ bool MaximumSumSubarrayOfSizeK::getAnswer() {
 		int tmp = 0;
 		if( (tmp = (*(bptr+1) + *(bptr+2) + *bptr ) ) > this->max) {
 			this->recordMaxSubarray(bptr);
-			
+			max = tmp;
 		}
 	}
+
+	return true;
 }
 
 
 void MaximumSumSubarrayOfSizeK::recordMaxSubarray(std::vector<int>::iterator& ptr){
 	for(size_t i=0; i < this->K; i++) {
 		max += *(ptr+i);
-		maxArr = std::make_shared(vector<int>());
+		maxArr = std::make_shared<vector<int>>();
 		maxArr->push_back(*(ptr+i));
 	}
+}
+
+int main(int argc, char* argv[]) {
+	for(
 }
