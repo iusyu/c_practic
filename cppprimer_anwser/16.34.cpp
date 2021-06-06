@@ -6,7 +6,7 @@ template<class T> int compare( const T& a, const T& b) {
 
 
 int main( int argc, char* argv[] ){ 
-	compare("HI","WORLD");
+	//compare("HI","WORLD");
 	compare("BYE", "BYE");
 	return 0;
 }
