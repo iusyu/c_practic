@@ -1,6 +1,8 @@
 #include <iostream>
 #include <unistd.h>
 #include <signal.h>
+#include <assert.h>
+
 
 
 class FSM {
@@ -105,5 +107,7 @@ int main(void)
 		ant.update();
 		sleep(2);
 	}
+
+	assert(FSM::State::Initial == FSM::PeerState::am_chocking);
 }
 
